@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>制作一个八卦图</title>
+    <style>
+        body {
+            background: #eee;
+        }
+
+        * {
+            box-sizing: border-box;
+            /* 盒子样式 */
+            padding: 0;
+            margin: 0;
+        }
+
+        @keyframes x {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* 0deg 从0开始不转，360deg转一圈 */
+
+        #八卦 {
+            fuckborder: 1px solid red;
+            /* 调试用 */
+            width: 400px;
+            height: 400px;
+            border-radius: 200px;
+            /* px是宽和高的一半时，矩形会变成圆，小于变成圆角矩形 */
+            position: relative;
+            /* 浮动 */
+            overflow: hidden;
+            /* 隐藏div之外多余的东西，让这个DIV保持一个圆，删除超出本DIV的其他DIV */
+            animation: x 10s linear infinite;
+            /* x是坐标 10s：10秒转一圈 linear线性转圈 infinite无限转圈 */
+            box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        #八卦>div:first-child {
+            fuckborder: 10px solid green;
+            /* 调试用 */
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            /* 浮动 */
+            left: 0;
+            background: black;
+        }
+
+        #八卦>div:nth-child(2) {
+            fuckborder: 10px solid blue;
+            /* 调试用 */
+            width: 50%;
+            height: 100%;
+            position: absolute;
+            /* 浮动 */
+            right: 0;
+            background: white;
+        }
+
+        #八卦>div:nth-child(3) {
+            fuckborder: 10px solid red;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            left: 50%;
+            /* left:50%使div距离左边的距离 50% */
+            margin-left: -100px;
+            border-radius: 50%;
+            background: black;
+        }
+
+        #八卦>div:nth-child(4) {
+            fuckborder: 10px solid red;
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            bottom: 0;
+            /* 使div距离bottom(底部)的距离 0  */
+            left: 50%;
+            margin-left: -100px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        #八卦>div:nth-child(5) {
+            fuckborder: 10px solid red;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            top: 75px;
+            left: 50%;
+            margin-left: -25px;
+            border-radius: 50%;
+            background: white;
+        }
+
+        #八卦>div:nth-child(6) {
+            fuckborder: 10px solid red;
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            bottom: 75px;
+            left: 50%;
+            margin-left: -25px;
+            border-radius: 50%;
+            background: black;
+        }
+
+        #八卦-wrapper {
+            fuckborder: 1px solid red;
+            height: 100vh;
+            /* viewpoint height 是vh的全称，指这个DIV填充自适应整个页面可视范围的高度 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* 八卦-wrapper 这个DIV目的在于使子DIV居中整个页面 */
+        #八卦-描述 {
+            margin-top: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="八卦-wrapper">
+        <div id="八卦">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div id="八卦-描述">
+            道可道，非常道
+
+        </div>
+
+    </div>
+</body>
+
+</html>
